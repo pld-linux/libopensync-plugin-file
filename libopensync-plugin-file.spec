@@ -9,7 +9,7 @@ Group:		Libraries
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	dad7ded0c3f5ec089e6efdb4bf5d7b4b
 URL:		http://www.opensync.org/
-BuildRequires:	libopensync-devel
+BuildRequires:	libopensync-devel >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
