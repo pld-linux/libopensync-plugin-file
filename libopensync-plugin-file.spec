@@ -1,5 +1,5 @@
 Summary:	OpenSync file plugin
-Summary(pl):	Wtyczka file do OpenSync
+Summary(pl.UTF-8):   Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
 Version:	0.19
 Release:	0.1
@@ -20,14 +20,14 @@ a powerful sync-engine and the framework itself.
 
 This package contains file plugin for OpenSync framework.
 
-%description -l pl
-OpenSync to niezale¿ny od platformy i dystrybucji szkielet do
+%description -l pl.UTF-8
+OpenSync to niezaleÅ¼ny od platformy i dystrybucji szkielet do
 synchronizacji danych.
 
-Sk³ada siê z ró¿nych wtyczek, których mo¿na u¿ywaæ do ³±czenia z
-urz±dzeniami, potê¿nego silnika synchronizacji oraz samego szkieletu.
+SkÅ‚ada siÄ™ z rÃ³Å¼nych wtyczek, ktÃ³rych moÅ¼na uÅ¼ywaÄ‡ do Å‚Ä…czenia z
+urzÄ…dzeniami, potÄ™Å¼nego silnika synchronizacji oraz samego szkieletu.
 
-Ten pakiet zawiera wtyczkê file (do synchronizacji plików) dla
+Ten pakiet zawiera wtyczkÄ™ file (do synchronizacji plikÃ³w) dla
 szkieletu OpenSync.
 
 %prep
