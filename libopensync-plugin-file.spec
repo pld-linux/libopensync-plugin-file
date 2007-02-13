@@ -1,5 +1,5 @@
 Summary:	OpenSync file plugin
-Summary(pl.UTF-8):   Wtyczka file do OpenSync
+Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
 Version:	0.19
 Release:	0.1
