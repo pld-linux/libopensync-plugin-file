@@ -1,12 +1,12 @@
 Summary:	OpenSync file plugin
 Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
-Version:	0.19
-Release:	0.1
+Version:	0.21
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.gz?format=raw
-# Source0-md5:	dad7ded0c3f5ec089e6efdb4bf5d7b4b
+Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
+# Source0-md5:	a9a4da5ae28d975ec2d9a6588f82fa0e
 URL:		http://www.opensync.org/
 BuildRequires:	libopensync-devel >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
