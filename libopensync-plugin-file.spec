@@ -8,8 +8,10 @@ Group:		Libraries
 Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
 # Source0-md5:	3b515742b69c815cbb911352a0ac3168
 URL:		http://www.opensync.org/
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libopensync-devel >= %{version}
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
