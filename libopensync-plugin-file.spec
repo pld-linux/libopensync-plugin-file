@@ -3,12 +3,16 @@ Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
 Version:	0.31
 Release:	1
-License:	LGPL
+License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
 # Source0-md5:	3aa2b994e9f138b2a6ec7b1e34bbe408
 URL:		http://www.opensync.org/
+BuildRequires:	fam-devel
+BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libopensync-devel >= %{version}
+BuildRequires:	libxml2-devel >= 2.0
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,12 +47,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/plugins/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/opensync/plugins/*.so
-%{_libdir}/opensync/plugins/*.la
-%{_datadir}/opensync/defaults/*
+%attr(755,root,root) %{_libdir}/opensync/plugins/file_sync.so
+%{_datadir}/opensync/defaults/file-sync
