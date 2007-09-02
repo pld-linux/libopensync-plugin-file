@@ -9,7 +9,6 @@ Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar
 # Source0-md5:	3aa2b994e9f138b2a6ec7b1e34bbe408
 URL:		http://www.opensync.org/
 BuildRequires:	libopensync-devel >= %{version}
-BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
