@@ -2,7 +2,7 @@ Summary:	OpenSync file plugin
 Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
 Version:	0.22
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
@@ -43,12 +43,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/plugins/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/opensync/plugins/*.so
-%{_libdir}/opensync/plugins/*.la
-%{_datadir}/opensync/defaults/*
+%attr(755,root,root) %{_libdir}/opensync/plugins/file_sync.so
+%{_datadir}/opensync/defaults/file-sync
