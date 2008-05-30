@@ -1,12 +1,12 @@
 Summary:	OpenSync file plugin
 Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
-Version:	0.31
+Version:	0.36
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://www.opensync.org/attachment/wiki/download/%{name}-%{version}.tar.bz2?format=raw
-# Source0-md5:	3aa2b994e9f138b2a6ec7b1e34bbe408
+Source0:	http://www.opensync.org/download/releases/0.36/%{name}-%{version}.tar.bz2
+# Source0-md5:	785a79d70e3d6e0637c7f21b2a09987c
 URL:		http://www.opensync.org/
 BuildRequires:	fam-devel
 BuildRequires:	glib2-devel >= 2.0
@@ -38,13 +38,21 @@ szkieletu OpenSync.
 %setup -q
 
 %build
-%configure
+mkdir build
+cd build
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+%if "%{_lib}" != "lib"
+	-DLIB_SUFFIX=64 \
+%endif
+	../
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/plugins/*.la
@@ -54,6 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/opensync/plugins/file_sync.so
-%{_datadir}/opensync/defaults/file-sync
+%doc AUTHORS INSTALL
+%attr(755,root,root) %{_libdir}/opensync-1.0/plugins/file-sync.so
+%{_datadir}/opensync-1.0/defaults/file-sync
