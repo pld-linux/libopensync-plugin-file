@@ -1,12 +1,12 @@
 Summary:	OpenSync file plugin
 Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
-Version:	0.36
+Version:	0.37
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://www.opensync.org/download/releases/0.36/%{name}-%{version}.tar.bz2
-# Source0-md5:	785a79d70e3d6e0637c7f21b2a09987c
+Source0:	http://www.opensync.org/download/releases/0.37/%{name}-%{version}.tar.bz2
+# Source0-md5:	79fbf514c29121384469cd32c50401f7
 URL:		http://www.opensync.org/
 BuildRequires:	fam-devel
 BuildRequires:	glib2-devel >= 2.0
@@ -63,5 +63,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS INSTALL
-%attr(755,root,root) %{_libdir}/opensync-1.0/plugins/file-sync.so
-%{_datadir}/opensync-1.0/defaults/file-sync
+%attr(755,root,root) %{_libdir}/libopensync1/plugins/file-sync.so
+%{_datadir}/libopensync1/defaults/file-sync
