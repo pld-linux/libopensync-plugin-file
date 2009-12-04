@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://www.opensync.org/download/releases/0.37/%{name}-%{version}.tar.bz2
 # Source0-md5:	79fbf514c29121384469cd32c50401f7
 URL:		http://www.opensync.org/
+BuildRequires:	cmake
 BuildRequires:	fam-devel
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libopensync-devel >= 1:%{version}
