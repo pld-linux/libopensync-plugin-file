@@ -1,12 +1,12 @@
 Summary:	OpenSync file plugin
 Summary(pl.UTF-8):	Wtyczka file do OpenSync
 Name:		libopensync-plugin-file
-Version:	0.37
+Version:	0.39
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://www.opensync.org/download/releases/0.37/%{name}-%{version}.tar.bz2
-# Source0-md5:	79fbf514c29121384469cd32c50401f7
+Source0:	http://www.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	4e4aeb1012b504c005c7f235b1bd0e60
 URL:		http://www.opensync.org/
 BuildRequires:	cmake
 BuildRequires:	fam-devel
@@ -41,12 +41,12 @@ szkieletu OpenSync.
 %build
 mkdir build
 cd build
-%cmake \
+%cmake .. \
+	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 %if "%{_lib}" != "lib"
-	-DLIB_SUFFIX=64 \
+	-DLIB_SUFFIX=64
 %endif
-	../
 
 %{__make}
 
@@ -65,4 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS INSTALL
 %attr(755,root,root) %{_libdir}/libopensync1/plugins/file-sync.so
+%attr(755,root,root) %{_libdir}/libopensync1/formats/file.so
+%attr(755,root,root) %{_libdir}/libopensync1/formats/plain.so
 %{_datadir}/libopensync1/defaults/file-sync
