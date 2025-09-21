@@ -5,15 +5,18 @@ Version:	0.39
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://www.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
+# originally http://www.opensync.org/download/releases/%{version}/%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	4e4aeb1012b504c005c7f235b1bd0e60
-URL:		http://www.opensync.org/
-BuildRequires:	cmake
+#URL:		http://www.opensync.org/
+BuildRequires:	cmake >= 2.4.4
 BuildRequires:	fam-devel
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libopensync-devel >= 1:%{version}
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.605
+Requires:	libopensync >= 1:%{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,14 +42,9 @@ szkieletu OpenSync.
 %setup -q
 
 %build
-mkdir build
+install -d build
 cd build
-%cmake .. \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-%if "%{_lib}" != "lib"
-	-DLIB_SUFFIX=64
-%endif
+%cmake ..
 
 %{__make}
 
@@ -56,14 +54,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/opensync/plugins/*.la
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS INSTALL
+%doc AUTHORS
 %attr(755,root,root) %{_libdir}/libopensync1/plugins/file-sync.so
 %attr(755,root,root) %{_libdir}/libopensync1/formats/file.so
 %attr(755,root,root) %{_libdir}/libopensync1/formats/plain.so
